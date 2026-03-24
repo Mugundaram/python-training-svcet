@@ -1,0 +1,14 @@
+1.sum:
+import calendar
+b= calendar.calendar(2026)
+print(b)
+2.month:
+import calendar
+b= calendar.month(2026,3)
+print(b)
+3.Leap year:
+calendar leap 
+import calendar
+b= calendar.isleap(2004)
+print(b)
+
