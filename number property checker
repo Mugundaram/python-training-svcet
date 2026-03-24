@@ -1,0 +1,28 @@
+def prime(i):
+    if i==1:
+        return False
+    c=0
+    for j in range(2,i):
+        if i%j==0:
+            c+=1
+    if c==0:
+        return True
+    else:
+        return False
+
+def sod(i):
+    sum=0
+    while(i!=0):
+        rem=i%10
+        sum+=rem
+        i=i//10
+    return sum
+        
+def every(i):
+    d=0
+    while(i!=0):
+        f=i%10
+        if(not prime(f)):
+            return False
+        i=i//10
+    return True
