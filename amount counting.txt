@@ -1,0 +1,6 @@
+sum = 0
+a = 2005
+while(a!=0):
+    a=int(input("enter the amount in rs:"))
+    sum=sum+a 
+print("the total is",sum)  
