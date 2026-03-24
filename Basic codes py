@@ -1,0 +1,230 @@
+name = ['gill','yogesh','ken','ben','max']
+mark = [[40,50,60],[67,79,72],[98,83,90],[34,44,39],[88,90,79]]
+
+pos = 1
+for i in range(5):
+    tot = sum(mark[i])
+    per = tot // 3
+
+    if per >= 90:
+        grade = 'S'
+    elif per >= 61:
+        grade = 'A'
+    elif per >= 41:
+        grade = 'B'
+    else:
+        grade = 'F'
+
+    print("{}. {} -- {}% -- {}".format(pos,name[i], per, grade, dept[i]))
+    pos = pos + 1
+
+
+-----------------------------------------------
+
+name = ['gill','yogesh','ken','ben','max']
+age = [23,45,65,33,14]
+loc=['CHENNAI','TRICHY','PONDY','TRICHY','CHENNAI']
+res=list(zip(age,name,loc))
+res1=sorted(res)
+for i in range(5):
+    print("{}.{} age is {} and the location is {}".format(i+1,res1[i][1],res1[i][0],res1[i][2]))
+
+--------------------------------------------------
+
+
+a=int(input('num1 :'))
+b=int(input('num2 :'))    
+c=int(input('num3 :'))
+
+a1=[int(i) for i in str(a)]
+b1=[int(i) for i in str(b)]
+c1=[int(i) for i in str(c)]
+
+large=(max(a1)+max(b1)+max(c1))
+small=(min(a1)+min(b1)+min(c1))
+
+print('key is :',large*small)
+
+---------------------------------------------------
+
+
+
+def prime(x):
+    if x==1:
+        return
+    i=2
+    while(x%i!=0):
+        i+=1
+    print(i,end=' ')
+    prime(x//i)
+    
+    
+    
+x=int(input('enter :'))
+prime(x)
+
+-----------------------------------------------------
+
+
+import random
+n=int(input('enter the number of team :'))
+teams=[]
+for i in range (n):
+    x=input('enter the team name :')
+    teams.append(x)
+meet=int(input('number of matches :'))
+match=[]
+for i in range(n-1):
+    for j in range(i+1,n):
+        for k in range (meet):
+            match.append([teams[i],teams[j]])
+random.shuffle(match)
+pos=1
+for i in match:
+    print('Matches: {} = {} VS {}'.format(pos,i[0],i[1]))
+    pos+=1
+
+---------------------------------------------------------
+
+
+n=int(input('enter the number of player :'))
+names=[]
+gender=[]
+for i in range (n):
+    name=input('enter name :')
+    names.append(name)
+    gen=input('enter gender :')
+    gender.append(gen)
+teams=[]
+for i in range(n-1):
+    for j in range(i+1,n):
+        if gender[i]!= gender[j]:
+            teams.append([names[i],names[j]])
+pos=1
+for i in teams:
+    print('teams {}: {} and {}'.format(pos,i[0],i[1]))
+    pos+=1
+
+---------------------------------------------------------
+
+num1=int(input('enter the number 1 ;'))
+num2=int(input('enter the number 2 :'))
+
+x=num1
+y=num2
+while y!=0:
+    x,y=y,x%y
+c=x
+lcm=(num1*num2)//c
+print("lcm is :",lcm)
+
+----------------------------------------------------------
+
+def calculate(x, y, z):
+    h = 0
+    t = 0
+    
+    while h < x:
+        t += 1
+        if t % 2!=0:      
+            h += y
+        else:          
+            h -= z
+            
+    print(t)
+calculate(30, 10, 5)
+calculate(21, 5, 3)
+
+
+-------------------------------------------------------
+
+a=int(input('enter any num :'))
+nums=[]
+while(True):
+    if a==1:
+        break
+    nums.append(a)
+    a1=[int(i)*int(i) for i in str(a)]
+    a=sum(a1)
+    if a in nums:
+        break
+print(nums)
+if a==1:
+    print('its a round')
+else:
+    print('its not round')
+
+
+------------------------------------------------------------
+
+
+class node():
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+
+class ll():
+    def __init__(self):
+        self.head=None
+    def insert(self,data):
+        newnode=node(data)
+        if self.head==None:
+            self.head=newnode
+        else:
+            temp=self.head
+            while(temp.next!=None):
+                temp=temp.next
+            temp.next=newnode
+    def display(self):
+        temp=self.head
+        while(temp!=None):
+            print(temp.data,end="-->")
+            temp=temp.next
+
+x=ll()
+x.insert(100)
+x.insert(200)
+x.insert(300)
+x.insert(400)
+x.display()
+
+----------------------------------------------------
+
+a = int(input('enter security code : '))
+a=[int(i) for i in str(a)]
+b=[]
+for i in a:
+    if i not in b:
+        b.append(i)
+count=0
+for i in b:
+    if a.count(i)>1:
+        count=count+1
+print(count)
+
+-----------------------------------------------------
+
+a=input('enter the boy name :')
+b=input('enter the girl name :')
+l1=len(a)
+l2=len(b)
+a1=list(a)
+b1=list(b)
+for i in range (l1):
+    for j in range(l2):
+        if a1[i]==b1[j]:
+            a1[i]="2"
+            b1[j]="2"
+c=0
+for i in a1:
+    if i!=2:
+        c=c+1
+for j in b1:
+    if j!=2:
+        c=c+1
+res=['F','L','A','M','E','S']
+f=0
+while len(res) > 1:
+    f = (f + (c - 1)) % len(res)
+    res.pop(f)
+print('{} and {} relationship is {}'.format(a,b,res))
