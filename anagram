@@ -1,0 +1,22 @@
+a = "hi today the weather is good we can play cricket"
+c = 0
+
+for i in range(len(a)):
+    if a[i] == ' ' and a[i+1] != ' ':
+        c += 1
+
+print('Number of words:', c + 1)
+
+a = input('word 1: ')
+b = input('word 2: ')
+
+a1 = ''.join(i for i in a if i.isalpha())
+b1 = ''.join(i for i in b if i.isalpha())
+
+a1 = a1.upper()
+b1 = b1.upper()
+
+if sorted(a1) == sorted(b1):
+    print('Its an anagram')
+else:
+    print('Its not an anagram')
